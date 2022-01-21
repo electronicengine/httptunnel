@@ -18,10 +18,12 @@ public:
     explicit HttpTunnelApp(QObject *parent = nullptr);
 
     void execute();
-    QByteArray makeJsonObject(const QString &FunctionName, const QStringList &Params);
+    QByteArray makeJsonObject(const QString &FunctionName, const QString &Params);
+    std::string commandExec(const char* Cmd);
 
 public slots:
-    void workerResultsCallBack(QString Result);
+    void commandPostResultsCallBack(QString Result);
+    void consequencePostResultCallback(QString Result);
 };
 
 #endif // HTTPTUNNELAPP_H
